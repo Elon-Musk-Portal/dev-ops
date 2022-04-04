@@ -48,6 +48,7 @@ services:
       dockerfile: Dockerfile
       context: ../frontend
     restart: always
+    stdin_open: true
     volumes:
       - /app/build:/frontend-build
       - /app
