@@ -29,20 +29,31 @@ services:
     ports:
       - "127.0.0.1:8080:8080"
 
-  portal-nginx:
-    container_name: portal-nginx
-    build:
-      dockerfile: Dockerfile
-      context: ../dev-ops/nginx
-    restart: always
-    volumes:
-      - /etc/letsencrypt/:/etc/letsencrypt/
-    ports:
-      - "443:443"
-      - "80:80"
+#  portal-nginx:
+#    container_name: portal-nginx
+#    build:
+#      dockerfile: Dockerfile
+#      context: ../dev-ops/nginx
+#    restart: always
+#    volumes:
+#      - /etc/letsencrypt/:/etc/letsencrypt/
+#    ports:
+#      - "443:443"
+#      - "80:80"
+#
+#  portal-frontend:
+#    container_name: portal-frontend
+#    build:
+#      dockerfile: Dockerfile
+#      context: ../frontend
+#    restart: always
+#    stdin_open: true
+#    volumes:
+#      - /app
+#      - /app/node_modules
 
-  portal-frontend:
-    container_name: portal-frontend
+  portal-frontend-nginx:
+    container_name: portal-frontend-nginx
     build:
       dockerfile: Dockerfile
       context: ../frontend
@@ -51,3 +62,8 @@ services:
     volumes:
       - /app
       - /app/node_modules
+      - /etc/letsencrypt/:/etc/letsencrypt/
+    ports:
+      - "443:443"
+      - "80:80"
+
