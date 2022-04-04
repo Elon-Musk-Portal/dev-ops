@@ -53,6 +53,8 @@ services:
       - /app/build:/frontend-build
       - /app
       - /app/node_modules
+    ports:
+      - "3000:3000"
 
 volumes:
   frontend-build:
