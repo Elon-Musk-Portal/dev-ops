@@ -27,7 +27,7 @@ services:
       - TWITTER_ACCESS_TOKEN
       - TWITTER_SECRET_TOKEN
     ports:
-      - "127.0.0.1:8080:8080"
+      - "8080:8080"
 
   portal-frontend-nginx:
     container_name: portal-frontend-nginx
