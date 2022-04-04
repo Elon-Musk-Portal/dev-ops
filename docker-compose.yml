@@ -36,7 +36,6 @@ services:
       context: ../dev-ops/nginx
     restart: always
     volumes:
-      - /frontend-build:/usr/share/nginx/html
       - /etc/letsencrypt/:/etc/letsencrypt/
     ports:
       - "443:443"
@@ -50,9 +49,5 @@ services:
     restart: always
     stdin_open: true
     volumes:
-      - /app/build:/frontend-build
       - /app
       - /app/node_modules
-
-volumes:
-  frontend-build:
